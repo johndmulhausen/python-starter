@@ -22,4 +22,4 @@ jobs:
     - name: Push image to Docker Hub
       uses: actions/docker/cli@master
       with:
-        args: push $DOCKER_USERNAME/my-application
+        args: push $secrets.DOCKER_USERNAME/my-application
