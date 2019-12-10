@@ -15,12 +15,12 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_REGISTRY_URL: docker.pkg.github.com
 
-      - name: Build :lastest
+      - name: Build :latest
         if: success()
-        run: docker build -t docker.pkg.github.com/${{ github.repository }}/app:latest .
+        run: docker build -t docker.pkg.github.com/${GITHUB_REPOSITORY}/app:latest .
         
       - name: Push to docker hub :latest
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: push docker.pkg.github.com/${{ github.repository }}:latest
+          args: push docker.pkg.github.com/${GITHUB_REPOSITORY}:latest
