@@ -14,11 +14,7 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
-    - name: Build :latest
-      run: docker build -t ${GITHUB_REPOSITORY} .
-
     - name: Push to docker hub
       uses: actions-hub/docker@master
       with:
-        args: push ${GITHUB_REPOSITORY}
+        args: push ${GITHUB_REPOSITORY}:latest
